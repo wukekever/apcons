@@ -1,0 +1,30 @@
+{
+    "build": {
+        "context": "..",
+        "dockerfile": "../docker/Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:1": {
+            "installZsh": false,
+            "installOhMyZsh": false,
+            "username": "none"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.vscode-python",
+                "ms-python.vscode-pylance",
+                "ms-python.flake8",
+                "ms-python.black-formatter",
+                "ms-python.isort"
+            ]
+        }
+    },
+    "postCreateCommand": "python -m pip install --no-cache-dir -e .",
+    "runArgs": [
+        "--name=deeplte",
+        "--gpus=all",
+        "--shm-size=1g"
+    ],
+}
